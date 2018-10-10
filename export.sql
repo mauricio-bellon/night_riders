@@ -1,17 +1,7 @@
 --------------------------------------------------------
 -- Archivo creado  - martes-octubre-09-2018   
 --------------------------------------------------------
-DROP TABLE "NIGHTRIDERS"."ALMACENAMIENTOS" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."CIUDADES" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."FAMILIAS" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."LOCALES" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."MOVIMIENTOS" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."PEDIDOS" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."PERFILES" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."PRODUCTOS" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."RECEPCION" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."RENGLONESPEDIDOS" cascade constraints;
-DROP TABLE "NIGHTRIDERS"."USUARIOS" cascade constraints;
+--PRUEBAPRUEBAPRUEBA
 --------------------------------------------------------
 --  DDL for Table ALMACENAMIENTOS
 --------------------------------------------------------
