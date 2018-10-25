@@ -1,7 +1,5 @@
 
 public class Ciudades {
-	//public static void main(String[] args) {
-//}
 	public String codigo;
 	public String nombre;
 	
