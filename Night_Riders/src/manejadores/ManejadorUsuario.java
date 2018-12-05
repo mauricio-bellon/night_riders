@@ -9,6 +9,7 @@ import java.util.List;
 import Objetos.Usuario;
 import Objetos.Perfiles;
 
+
 public class ManejadorUsuario {
 	private static PreparedStatement consultaInsertarUsuario;
 	private static PreparedStatement consultaUsuarioPorCodigo;
@@ -84,13 +85,18 @@ public class ManejadorUsuario {
 			while (resultadoConsulta.next()) {
 
 				String codigo = resultadoConsulta.getString(1);
-				String nompefiles = resultadoConsulta.getString(2);
+				String nomperfiles = resultadoConsulta.getString(2);
+				
+				Perfiles perfiles = ManejadorPerfiles.obtenerPerfiles(nomperfiles);
+				
 				String nombre = resultadoConsulta.getString(3);
 				String apellido = resultadoConsulta.getString(4);
 				String nombreacceso = resultadoConsulta.getString(5);
 				String correo = resultadoConsulta.getString(6);
 				String contraseña = resultadoConsulta.getString(7);
-				Usuario usuario = new Usuario(codigo,nompefiles,nombre,apellido,nombreacceso,correo,contraseña);
+				
+				
+				Usuario usuario = new Usuario(codigo,perfiles,nombre,apellido,nombreacceso,correo,contraseña);
 				resultado.add(usuario);
 
 			}
