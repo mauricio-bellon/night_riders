@@ -3,7 +3,7 @@ package controladores;
 import java.sql.SQLException;
 import java.util.List;
 
-import manejadores.MenejadorCiudades;
+//import manejadores.MenejadorCiudades;
 import Objetos.Ciudades;
 
 public class ControladorCiudades {
@@ -13,7 +13,7 @@ public class ControladorCiudades {
 		Ciudades ciudades = new Ciudades(codigo, nombre);
 		
 		try{
-			ManejadorCiudades.guardarCiudades(Ciudades);
+			manejadores.MenejadorCiudades.guardarCiudades(ciudades);
 			pudeCrear = true;
 		}
 		catch (SQLException e){
@@ -28,7 +28,7 @@ public class ControladorCiudades {
 	public static boolean existeCiudades(String codigo){
 		
 		boolean existe;
-		Ciudades ciudades = ManejadorCiudades.obtenerCiudades(codigo);
+		Ciudades ciudades = manejadores.MenejadorCiudades.obtenerCiudades(codigo);
 		
 		if (ciudades==null){
 			existe = false;
@@ -43,6 +43,6 @@ public class ControladorCiudades {
 	
 	public List<Ciudades> obtenerTodosCiudades(){
 		
-		return ManejadorCiudades.obtenerTodosCiudades();
+		return manejadores.MenejadorCiudades.obtenerTodosCiudades();
 	}
 }
