@@ -9,6 +9,7 @@ import java.awt.Font;
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+import javax.swing.JRadioButton;
 
 public class VentanaLogueo {
 
