@@ -32,20 +32,20 @@ public class ControladoresPedidoProducto {
 	
 	public static ArrayList<String> obtenerInfoPedidoProductos(){
 		
-		ArrayList<String> infoMascotas = new ArrayList<>();
+		ArrayList<String> infoPedidoProducto = new ArrayList<>();
 		
 		ArrayList<PedidoProducto> pedidoProductos = ManejadorPedidoProducto.obtenerTodosPedidoProductos();
 		
 		for(PedidoProducto pedidoProducto: pedidoProductos){
-			infoMascotas.add(pedidoProducto.toString());
+			infoPedidoProducto.add(pedidoProducto.toString());
 		}
 		
-		return infoMascotas;
+		return infoPedidoProducto;
 		
 	}
 	
-	public static  ArrayList<PedidoProducto> obtenerTodasPedidoProductos(){
-		return ManejadorPedidoProductos.obtenerTodasPedidoProductos();
+	public static  ArrayList<PedidoProducto> obtenerTodosPedidoProductos(){
+		return ManejadorPedidoProducto.obtenerTodosPedidoProductos();
 	}
 
 }
