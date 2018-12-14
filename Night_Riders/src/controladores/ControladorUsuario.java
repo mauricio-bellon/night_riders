@@ -29,6 +29,7 @@ public class ControladorUsuario {
 		return pudeCrear;
 
 	}
+	
 	public static boolean existeUsuario(String codigo){
 		
 		boolean existe;
@@ -62,6 +63,5 @@ public class ControladorUsuario {
 	public static  ArrayList<Usuario> obtenerTodosUsuarios(){
 		return (ArrayList<Usuario>) ManejadorUsuario.obtenerTodosUsuarios();
 	}
-
 
 }

@@ -1,21 +1,32 @@
 package interfaz;
 
+// importar clases de la aplicación
+import controladores.ControladorUsuario;
+
+// importar clases de SWING
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
 import javax.swing.JLabel;
+import javax.swing.JOptionPane;
+
 import java.awt.BorderLayout;
 import java.awt.Font;
+import java.awt.HeadlessException;
+
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
+
 import javax.swing.JRadioButton;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
 
 public class FrameLogueo {
 
 	private JFrame frmLogueo;
-	private JTextField textField;
-	private JTextField textField_1;
+	private JTextField campo_usuario;
+	private JTextField campo_contra;
 
 	/**
 	 * Launch the application.
@@ -57,10 +68,10 @@ public class FrameLogueo {
 		lblNewLabel.setBounds(30, 31, 101, 20);
 		frmLogueo.getContentPane().add(lblNewLabel);
 		
-		textField = new JTextField();
-		textField.setBounds(148, 31, 160, 20);
-		frmLogueo.getContentPane().add(textField);
-		textField.setColumns(10);
+		campo_usuario = new JTextField();
+		campo_usuario.setBounds(148, 31, 160, 20);
+		frmLogueo.getContentPane().add(campo_usuario);
+		campo_usuario.setColumns(10);
 		
 		JLabel lblContrasea = new JLabel("contrase\u00F1a:");
 		lblContrasea.setHorizontalAlignment(SwingConstants.RIGHT);
@@ -68,12 +79,45 @@ public class FrameLogueo {
 		lblContrasea.setBounds(30, 62, 100, 20);
 		frmLogueo.getContentPane().add(lblContrasea);
 		
-		textField_1 = new JTextField();
-		textField_1.setColumns(10);
-		textField_1.setBounds(148, 62, 160, 20);
-		frmLogueo.getContentPane().add(textField_1);
+		campo_contra = new JTextField();
+		campo_contra.setColumns(10);
+		campo_contra.setBounds(148, 62, 160, 20);
+		frmLogueo.getContentPane().add(campo_contra);
 		
 		JButton btnIngresar = new JButton("ingresar");
+		/*btnIngresar.addActionListener(new ActionListener() {
+			//ACA CREO LA FUNCIÓN QUE SE DISPARA CUANDO SE PRESIONA EL BOTÓN DE LOGUEAR
+			public void actionPerformed(ActionEvent e) {
+				
+				try {
+					
+					// OBTENER DATOS INGRESADO POR EL USUARIO
+					String user = campo_usuario.getText();
+					String pass = campo_contra.getText();
+					
+					// COMPOBAR QUE EL USUARIO EXISTA EN LA BASE DE DATOS
+					if (ControladorUsuario.existeUsuario(user)) {
+						
+						// POP UP DE PRUEBA
+						JOptionPane.showMessageDialog(null,"el usuario está registrado!");
+						
+					} else {
+						
+						// POP UP DE PRUEBA
+						JOptionPane.showMessageDialog(null,"usuario inexistente!");
+						
+					};
+					
+					
+				} catch (HeadlessException e1) {
+					
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+					
+				}
+				
+			}
+		});*/
 		btnIngresar.setFont(new Font("Consolas", Font.PLAIN, 16));
 		btnIngresar.setBounds(28, 93, 280, 23);
 		frmLogueo.getContentPane().add(btnIngresar);
