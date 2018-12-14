@@ -85,7 +85,7 @@ public class FrameLogueo {
 		frmLogueo.getContentPane().add(campo_contra);
 		
 		JButton btnIngresar = new JButton("ingresar");
-		/*btnIngresar.addActionListener(new ActionListener() {
+		btnIngresar.addActionListener(new ActionListener() {
 			//ACA CREO LA FUNCIÓN QUE SE DISPARA CUANDO SE PRESIONA EL BOTÓN DE LOGUEAR
 			public void actionPerformed(ActionEvent e) {
 				
@@ -117,9 +117,11 @@ public class FrameLogueo {
 				}
 				
 			}
-		});*/
+		});
+		
 		btnIngresar.setFont(new Font("Consolas", Font.PLAIN, 16));
 		btnIngresar.setBounds(28, 93, 280, 23);
 		frmLogueo.getContentPane().add(btnIngresar);
+		
 	}
 }
