@@ -28,6 +28,7 @@ public class VentanaLogueo {
 	private JTextField campo_usuario;
 	private JTextField campo_contra;
 	private final Action action = new SwingAction();
+	private final Action action_1 = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -90,16 +91,15 @@ public class VentanaLogueo {
 			//ACA CREO LA FUNCIÓN QUE SE DISPARA CUANDO SE PRESIONA EL BOTÓN DE LOGUEAR
 			public void actionPerformed(ActionEvent arg0) {
 				
-				
-				/*
 				// OBTENER DATOS INGRESADO POR EL USUARIO
 				String user = campo_usuario.getText();
 				String pass = campo_contra.getText();
-					
+				
+				
 				// COMPOBAR QUE EL USUARIO EXISTA EN LA BASE DE DATOS
 				if (ControladorUsuario.existeUsuario(user) == true) {
 						
-					// POP UP DE PRUEBA (no funciona no se por que)
+					// POP UP DE PRUEBA (no funciona no se por que!!!!!!!!!!)
 					JOptionPane.showMessageDialog(null,"el usuario está registrado!");
 					// aquí habría que comparar que la contraseña ingresada coincida con la
 					// contraseña correspondiente al usuario ingresado en la bd.
@@ -109,7 +109,7 @@ public class VentanaLogueo {
 					// POP UP DE PRUEBA
 					JOptionPane.showMessageDialog(null,"usuario inexistente!");
 						
-				}*/
+				}
 						
 			}
 		});
@@ -117,5 +117,13 @@ public class VentanaLogueo {
 		btnIngresar.setFont(new Font("Consolas", Font.PLAIN, 16));
 		btnIngresar.setBounds(28, 93, 280, 23);
 		frmLogueo.getContentPane().add(btnIngresar);
+	}
+	private class SwingAction extends AbstractAction {
+		public SwingAction() {
+			putValue(NAME, "SwingAction");
+			putValue(SHORT_DESCRIPTION, "Some short description");
+		}
+		public void actionPerformed(ActionEvent e) {
+		}
 	}
 }
