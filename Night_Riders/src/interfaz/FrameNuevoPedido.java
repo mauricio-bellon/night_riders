@@ -108,35 +108,35 @@ public class FrameNuevoPedido implements ActionListener{
 		NuevoPedidoPanel.add(this.textFechaEstimadaRecibido, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 3;
 		NuevoPedidoPanel.add(this.labelEstadoPedidoProducto, constraints);
 
 		constraints.gridx = 1;
 		NuevoPedidoPanel.add(this.textEstadoPedidoProducto, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 4;
 		NuevoPedidoPanel.add(this.labelCantidad, constraints);
 
 		constraints.gridx = 1;
 		NuevoPedidoPanel.add(this.textCantidad, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 5;
 		NuevoPedidoPanel.add(this.labelFechaEstimadaEntrega, constraints);
 
 		constraints.gridx = 1;
 		NuevoPedidoPanel.add(this.textFechaEstimadaEntrega, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 3;
-		constraints.gridwidth = 3;
+		constraints.gridy = 6;
+		constraints.gridwidth = 6;
 		constraints.anchor = GridBagConstraints.CENTER;
 		NuevoPedidoPanel.add(buttonIngresar, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 4;
-		constraints.gridwidth = 4;
+		constraints.gridy = 7;
+		constraints.gridwidth = 7;
 		constraints.anchor = GridBagConstraints.CENTER;
 		NuevoPedidoPanel.add(buttonCancelar, constraints);
 

@@ -47,9 +47,8 @@ public class FramePrincipal {
 		
 		initializeMenuPedidos(menuBar, frame);
 		initializeMenuProductos(menuBar, frame);
-		/*initializeMenuVeterinario(menuBar, frame);
-		initializeMenuConsultas(menuBar, frame);*/
-		
+		initializeMenuUsuario(menuBar, frame);
+		initializeMenuCiudades(menuBar, frame);
 		frame.setJMenuBar(menuBar);
 
 	}
@@ -66,12 +65,24 @@ public class FramePrincipal {
             @Override
             public void actionPerformed(ActionEvent event) {
                 
+            	new FrameNuevoPedido(frame);
+            	
+            }
+        });
+		
+		JMenuItem listarPedidos = new JMenuItem("Listado Pedidos");
+		
+		listarPedidos.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent event) {
+                
             	new FrameListarPedidos(frame);
             	
             }
         });
 
 		pedidos.add(pedidoProd);
+		pedidos.add(listarPedidos);
 		menuBar.add(pedidos);
 		
 	}
@@ -93,9 +104,9 @@ public class FramePrincipal {
             }
         });
 		
-		JMenuItem listarMastcotas = new JMenuItem("Listar producto");
+		JMenuItem listarProductos = new JMenuItem("Listar producto");
 		
-		listarMastcotas.addActionListener(new ActionListener() {
+		listarProductos.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
                 
@@ -105,67 +116,66 @@ public class FramePrincipal {
         });
 
 		producto.add(nuevoProducto);
-		producto.add(listarMastcotas);
+		producto.add(listarProductos);
 		
 		menuBar.add(producto);
 		
 	}
 	
-	/** Inicialicación de botones del menu de Veterinario */
-	/*
-	private static void initializeMenuVeterinario(JMenuBar menuBar, final JFrame frame) {
+	/** Inicialicación de botones del menu de Usuario */
+	private static void initializeMenuUsuario(JMenuBar menuBar, final JFrame frame) {
 		
-		JMenu veterinarios = new JMenu("Veterinarios");
+		JMenu usuario = new JMenu("Usuarios");
 		
-		JMenuItem nuevoVeterinario = new JMenuItem("Nuevo Veterinario");
+		JMenuItem nuevoUsuario = new JMenuItem("Nuevo Usuario");
 		
-		nuevoVeterinario.addActionListener(new ActionListener() {
+		nuevoUsuario.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
                 
-            	new FrameNuevoVeterinario(frame);
+            	new FrameNuevoUsuario(frame);
             	
             }
         });
 
-		veterinarios.add(nuevoVeterinario);
+		usuario.add(nuevoUsuario);
 		
-		menuBar.add(veterinarios);
+		menuBar.add(usuario);
 		
-	}*/
+	}
 	
 	/** Inicialicación de botones del menu de Consultas */
-	/*
-	private static void initializeMenuConsultas(JMenuBar menuBar, final JFrame frame) {
+	
+	private static void initializeMenuCiudades(JMenuBar menuBar, final JFrame frame) {
 		
-		JMenu consultas = new JMenu("Consultas");
+		JMenu ciudades = new JMenu("Ciudades");
 		
-		JMenuItem nuevaConsulta = new JMenuItem("Nueva Consulta");
+		JMenuItem listarCiudades = new JMenuItem("Listar Ciudades");
 		
-		nuevaConsulta.addActionListener(new ActionListener() {
+		listarCiudades.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
                 
-            	new FrameNuevaConsulta(frame);
+            	new FrameListarCiudades(frame);
             	
             }
         });
 		
-		JMenuItem listarConsultas = new JMenuItem("Listar Consultas");
+		JMenuItem nuevaCiudad = new JMenuItem("Nueva Ciudad");
 		
-		listarConsultas.addActionListener(new ActionListener() {
+		nuevaCiudad.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent event) {
                 
-            	new FrameListarConsultas(frame);
+            	new FrameNuevaCiudad(frame);
             	
             }
         });
 
-		consultas.add(nuevaConsulta);
-		consultas.add(listarConsultas);
+		ciudades.add(listarCiudades);
+		ciudades.add(nuevaCiudad);
 		
-		menuBar.add(consultas);		
-	}*/
+		menuBar.add(ciudades);		
+	}
 
 }

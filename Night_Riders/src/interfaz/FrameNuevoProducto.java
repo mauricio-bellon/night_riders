@@ -131,77 +131,77 @@ public class FrameNuevoProducto implements ActionListener{
 		nuevoProductoPanel.add(this.textstockTotal, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 3;
 		nuevoProductoPanel.add(this.labelstockMinimo, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textstockMinimo, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 4;
 		nuevoProductoPanel.add(this.labelSegmentacion, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textSegmentacion, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 5;
 		nuevoProductoPanel.add(this.labelPeso, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textPeso, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 6;
 		nuevoProductoPanel.add(this.labeltipoEstiba, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.texttipoEstiba, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 7;
 		nuevoProductoPanel.add(this.labelvolumen, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textvolumen, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 8;
 		nuevoProductoPanel.add(this.labelprecio, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textprecio, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 9;
 		nuevoProductoPanel.add(this.labelfechaVencimiento, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textfechaVencimiento, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 10;
 		nuevoProductoPanel.add(this.labelfechaElaborado, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textfechaElaborado, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 2;
+		constraints.gridy = 11;
 		nuevoProductoPanel.add(this.labelLote, constraints);
 
 		constraints.gridx = 1;
 		nuevoProductoPanel.add(this.textLote, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 3;
-		constraints.gridwidth = 3;
+		constraints.gridy = 12;
+		constraints.gridwidth = 12;
 		constraints.anchor = GridBagConstraints.CENTER;
 		nuevoProductoPanel.add(buttonIngresar, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 4;
-		constraints.gridwidth = 4;
+		constraints.gridy = 13;
+		constraints.gridwidth = 13;
 		constraints.anchor = GridBagConstraints.CENTER;
 		nuevoProductoPanel.add(buttonCancelar, constraints);
 
