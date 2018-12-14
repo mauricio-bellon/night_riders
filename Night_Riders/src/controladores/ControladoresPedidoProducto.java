@@ -3,7 +3,6 @@ package controladores;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 import manejadores.ManejadorProductos;
 import manejadores.ManejadorPedidoProducto;
@@ -31,27 +30,11 @@ public class ControladoresPedidoProducto {
 
 	}
 	
-	public static boolean existePedidoProducto(String codigoProducto){
-		
-		boolean existe;
-		PedidoProducto pedidoProductos = ManejadorPedidoProducto.obtenerPedidoProductos(codigoProducto);
-		
-		if (pedidoProductos==null){
-			existe = false;
-		}
-		else{
-			existe = true;
-		}
-		
-		return existe;
-		
-	}
-	
 	public static ArrayList<String> obtenerInfoPedidoProductos(){
 		
 		ArrayList<String> infoPedidoProducto = new ArrayList<>();
 		
-		ArrayList<PedidoProducto> pedidoProductos = (ArrayList<PedidoProducto>) ManejadorPedidoProducto.obtenerTodosPedidoProductos();
+		ArrayList<PedidoProducto> pedidoProductos = ManejadorPedidoProducto.obtenerTodosPedidoProductos();
 		
 		for(PedidoProducto pedidoProducto: pedidoProductos){
 			infoPedidoProducto.add(pedidoProducto.toString());
@@ -62,7 +45,7 @@ public class ControladoresPedidoProducto {
 	}
 	
 	public static  ArrayList<PedidoProducto> obtenerTodosPedidoProductos(){
-		return (ArrayList<PedidoProducto>) ManejadorPedidoProducto.obtenerTodosPedidoProductos();
+		return ManejadorPedidoProducto.obtenerTodosPedidoProductos();
 	}
 
 }

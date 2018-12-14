@@ -5,7 +5,6 @@ import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.text.SimpleDateFormat;
@@ -22,10 +21,6 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
-import javax.swing.RowSorter;
-import javax.swing.ScrollPaneLayout;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
@@ -99,7 +94,7 @@ public class FrameListarProductos implements ActionListener{
 	}
 	
 	private JTable cargarTablaProductos() {
-		ArrayList<Productos> productos = ControladorProductos.obtenerTodosProductos();
+		ArrayList<Productos> productos = ControladorProductos.obtenerTodasProductos();
 		
 		String[] nombreColumnas = { "Codigo","Nombre", "Stock Total", "Stock Minimo" , "Segmentacion", "Peso", "Estiba","Volumen","Precio","Fecha Vencimiento","Fecha Elaboracion","Lote"};
 		
@@ -152,6 +147,7 @@ public class FrameListarProductos implements ActionListener{
 		}
 	}
 	
+	@Override
 	public void accionLimpiarFiltro() {
 		this.tablaProductos.setRowSorter(null);
 	}

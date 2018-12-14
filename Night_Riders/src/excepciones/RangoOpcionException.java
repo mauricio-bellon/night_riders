@@ -1,6 +1,6 @@
 package excepciones;
 
-public class RangoOpcionException extends Exception {
+public class RangoOpcionException {
 	public RangoOpcionException(String mensaje) {
 		super(mensaje);
 	}

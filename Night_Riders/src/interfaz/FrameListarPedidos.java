@@ -122,28 +122,28 @@ public class FrameListarPedidos implements ActionListener {
 
 	private JTable cargarTablaPedidos() {
 
-		ArrayList<PedidoProducto> pedidoproductos = ControladoresPedidoProducto.obtenerTodosPedidoProductos();
+		ArrayList<PedidoProducto> PedidoProductos = ControladoresPedidoProducto.obtenerTodosPedidoProductos();
 
 		String[] nombreColumnas = { "Codigo Pro", "Fecha", "FechaEstimadaRecibido","EstadoPedidoProducto","Cantidad","Fecha Estimada Entrega"};
 		/*
 		 * El tamaño de la tabla es, 4 columnas (cantidad de datos a mostrar) y
 		 * la cantidad de filas depende de la cantida de Pedidos
 		 */
-		Object[][] datos = new Object[pedidoproductos.size()][6];
+		Object[][] datos = new Object[PedidoProductos.size()][6];
 
 		/* Cargamos la matriz con todos los datos */
 		int fila = 0;
 
 		SimpleDateFormat formateadorFecha = new SimpleDateFormat("dd/MM/yyyy");
 
-		for (PedidoProducto c : pedidoproductos) {
+		for (PedidoProduto c : pedidoprodutos) {
 
 			datos[fila][0] = c.getProductos().getCodigo();
-			datos[fila][1] = formateadorFecha.format(c.getFecha());
-			datos[fila][2] = formateadorFecha.format(c.getFechaEstimadaRecibido());
-			datos[fila][3] = c.getEstadoPedidoProducto();
-			datos[fila][4] = c.getCantidad();
-			datos[fila][5] = formateadorFecha.format(c.getFechaEstimadaEntrega());
+			datos[fila][1] = formateadorFecha.format(c.getFecha);
+			datos[fila][2] = formateadorFecha.format(c.getFechaPedidoProducto);
+			datos[fila][3] = c.getEstadoPedidoProducto;
+			datos[fila][4] = c.getCantidad;
+			datos[fila][5] = formateadorFecha.format(c.getFechaEstimadaEntrega);
 			fila++;
 
 		}

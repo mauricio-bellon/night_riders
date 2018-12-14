@@ -2,10 +2,9 @@ package controladores;
 
 import java.sql.SQLException;
 import java.util.List;
-import java.util.ArrayList;
 
+//import manejadores.MenejadorCiudades;
 import Objetos.Ciudades;
-import manejadores.MenejadorCiudades;
 
 public class ControladorCiudades {
 	public static boolean ingresarNuevaCiudad(String codigo, String nombre){
@@ -42,22 +41,8 @@ public class ControladorCiudades {
 		
 	}
 	
-	public static ArrayList<String> obtenerInfoCiudades(){
+	public List<Ciudades> obtenerTodosCiudades(){
 		
-		ArrayList<String> infoCiudades = new ArrayList<>();
-		
-		ArrayList<Ciudades> ciudades = (ArrayList<Ciudades>) MenejadorCiudades.obtenerTodosCiudades();
-		
-		for(Ciudades ciudad: ciudades){
-			infoCiudades.add(ciudad.toString());
-		}
-		
-		return infoCiudades;
-		
-	}
-	
-	public static ArrayList<Ciudades> obtenerTodosCiudades(){
-		
-		return (ArrayList<Ciudades>) MenejadorCiudades.obtenerTodosCiudades();
+		return manejadores.MenejadorCiudades.obtenerTodosCiudades();
 	}
 }
