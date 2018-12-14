@@ -1,0 +1,706 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite id="" name="" >
+<node_order><![CDATA[]]></node_order>
+<details><![CDATA[]]></details> 
+<testsuite id="129910" name="S1-RF02 - Manejo Productos" >
+<node_order><![CDATA[1]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="129920" name="CP 01 - Producto 50 caracteres">
+	<node_order><![CDATA[2]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Corroborar que el nombre no supera los 50 caracteres</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	El usuario debe tener permisos de ingresar.</p>
+<p>
+	Producto no debe estar dado de alta en el sistema.</p>
+<p>
+	El nombre ingresado es mayor a 50 caracteres.</p>
+<p>
+	&nbsp;</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	ingresa un nombre con mas de 50 caracteres</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	no permite ingresar el nombre y emite se&ntilde;al que no es correcto</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129924" name="CP 02 - Ingreso de datos numéricos">
+	<node_order><![CDATA[3]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Comprobar que los campos C&oacute;digo, Stock Total, Stock M&iacute;nimo, Peso, Vida Util, Volumen y Precio solo permiten ingresar datos de tipo numericos.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+<p>
+	&nbsp;</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	ingresar datos no numericos en uno de los campos</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	no debe permitir ingresar ese tipo de datos, emitir error.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	ingresar datos numericos en los campos</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	debe permitir ingresar los datos</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129930" name="CP 03 - Formato de fecha ">
+	<node_order><![CDATA[6]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	verificar que los campos vencimiento y fecha de fabricacion no sean en formato: &quot;dd/mm/aaaa&quot;</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	ingresar datos en formato dd/mm/aaaa</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	no debe dejar ingresar ese tipo de datos, emite error &quot;tipo de dato ingresado no valido&quot;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129916" name="CP 04 - Código existente">
+	<node_order><![CDATA[7]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	el codigo no puede repetirse.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	ingresar un mismo codigo dos veces</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	debe emitir error:&quot;se ingreso dos veces el mismo codigo&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129935" name="CP 05 - Producto NO existe">
+	<node_order><![CDATA[1000]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	En la busqueda de productos, cuando se hace la busqueda del mismo, se comprueba la existencia y de ser que no existe advertir al usuario atravez de una ventana emergente.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Usuario una vez registrado, hace la busqueda de un producto que no esta enlistado.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Sistema detecta producto no existe y advirte &quot;Producto no existe, desea agregarlo?&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Si acepta podra ir a agregar el producto de ser necesario. De no ser neesario el usuario podra proseguir sin problemas con el uso del sistema.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	sistema le muestra interfaz correspondiente.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129943" name="CP 06 - Baja Producto por Operador Local.">
+	<node_order><![CDATA[1004]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Comprueba que el operador no puede hacer eliminacion de productos. Lo opcion debe estar bloqueada.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Operador Local</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Usuario intenta eliminar el producto</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Sistema no permite al usuario la opcion de eliminar ni editar. Opciones aparecen en gris sin poder clickear sobre ellas.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129922" name="CP 07 - Ingreso Valido Productos">
+	<node_order><![CDATA[1005]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que no se pueda ingresar&nbsp; un producto con campos obligatorios vac&iacute;os.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tener los permisos correspondientes</p>
+<p>
+	El Producto a ingresar no debe estar previamente dado de alta en el sistema.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration>5.00</estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<div style="left: 187.4px; top: 382.05px; font-size: 10.6px; font-family: sans-serif; transform: scaleX(0.9075);">
+	Ir a la funci&oacute;n &quot;ingresar producto&quot; y enviar el formulario d&aacute;ndole &quot;guardar&quot;, sin haber llenado ning&uacute;n campo.</div>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Los campos C&oacute;digo Producto, Nombre, Stock Total, Stock M&iacute;nimo, Segmentaci&oacute;n,Peso,Tipo Estiba, Volumen, Precio, Fecha Vencimiento, Fecha Elaborado y Lote se resaltan en rojo y aparece la leyenda &quot;campo requerido&quot;.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129948" name="CP 08 - Operador Local derechos Producto">
+	<node_order><![CDATA[1005]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que el Operador Local no pueda ingresar un producto.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	El usuario tiene perfil Operador Local.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+
+</testcase>
+
+<testcase internalid="129952" name="CP 09 - Campo código estático">
+	<node_order><![CDATA[1007]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que una ves creado un producto, no se pueda modificar su c&oacute;digo identificatorio.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tener derechos correspondientes.</p>
+<p>
+	Debe existir previamente el producto con c&oacute;digo 007.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Ingresar a la opci&oacute;n de b&uacute;squeda de productos.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega la interfaz de b&uacute;squeda.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Buscar el producto por su c&oacute;digo &quot;007&quot; y darle a la opci&oacute;n &quot;modificar&quot;. Proceder a cambiar el campo &quot;c&oacute;digo&quot; con el ingreso &quot;123&quot; y darle a &quot;guardar&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega un error: &quot;No se puede cambiar el c&oacute;digo de un producto.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129954" name="CP 10 - Campo descripción estático">
+	<node_order><![CDATA[1008]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que una ves creado un producto, no se pueda modificar su descripci&oacute;n.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tener derechos correspondientes.</p>
+<p>
+	Debe existir previamente el producto con c&oacute;digo 007.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Buscar el producto por su c&oacute;digo &quot;007&quot; y darle a la opci&oacute;n &quot;modificar&quot;. Proceder a cambiar el campo &quot;descripci&oacute;n&quot; con el ingreso &quot;juajuajuajuajuajuajuajuajau&quot; y darle a &quot;guardar&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega un error: &quot;No se puede cambiar el c&oacute;digo de un producto.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="129956" name="S2-RF11 - Logueo Usuarios" >
+<node_order><![CDATA[2]]></node_order>
+<details><![CDATA[]]></details> 
+
+<testcase internalid="129959" name="CP 01 - Contraseña Incorrecta">
+	<node_order><![CDATA[1001]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que la contrase&ntilde;a sea la adecuada para el usuario correspondiente.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Debe existir de antemano un usuario &quot;pepito&quot; con contrase&ntilde;a &quot;1234abcd&quot;.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Ingresar a la parte de logueo del sistema e ingresar el usuario &quot;pepito&quot; y la contrase&ntilde;a &quot;jejejeje&quot;. Confirmar el logueo.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega una alerta en pantalla: &quot;Contrase&ntilde;a incorrecta&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="129961" name="CP 02 - Usuario Incorrecto">
+	<node_order><![CDATA[1002]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que el registro no se valida si el usuario ingresado es incorrecto.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	No debe existir previamente el nombre de usuario a utilizar en la prueba (&quot;jejejeje&quot;).</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Ingresar a la parte de logueo del sistema e ingresar el usuario &quot;asdfasdf&quot; y la contrase&ntilde;a &quot;jejejeje&quot;. Confirmar el logueo.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega una alerta en pantalla: &quot;Este usuario no existe o la contrase&ntilde;a es incorrecta&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="130074" name="S3-RF09 Ingreso de Pedidos de Productos" >
+<node_order><![CDATA[3]]></node_order>
+<details><![CDATA[<p>
+	Esta suite contendr&aacute; las diferentes suites en relaci&oacute;n con la Gesti&oacute;n de Pedidos de Productos.</p>
+]]></details> 
+
+<testcase internalid="130081" name="CP 01 - Capacidad de almacenamiento.">
+	<node_order><![CDATA[1]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Comprobacion de que haya suficiente lugar en el almacenamiento para la cantidad pedida.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration>2.00</estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Genera alta de pedido con una superacion de capacidad en el almacenamiento seleccionado.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Sistema advierte &quot;Capacidad superada, verifique datos y o seleccione otro almacenamiento con mas capacidad.&quot;</p>
+<p>
+	Regresa el usuario a la venta de altas de pedidos.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="130093" name="CP 02 - Modificación de pedido a estado Enviado.">
+	<node_order><![CDATA[1001]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Modificar estado de un pedido a &quot;enviado&quot;.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration>2.00</estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	El usuario ingresa un pedido que se encuentra en estado enviado</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	El sistema devuelve el mensaje &quot;El sistema no permite modificar el pedido&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="130101" name="CP 03 - Eliminar pedido que este en estado Preparado, Gestionado">
+	<node_order><![CDATA[1001]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Eliminacion de pedidos en estados:Gestionado o Preparado</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration>3.00</estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	El usuario ingresa para eliminar un pedido en estado Gestionado o Preparado.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	El sistema solo habilita la opci&oacute;n Cancelar pedido.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="130104" name="CP 04 - Eliminar pedidos que están en estado &quot;enviado&quot;.">
+	<node_order><![CDATA[1002]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Se verifica la baja en el caso de pedido Enviado</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Tiene que estar registrado con grado: Administrador o Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration>3.00</estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	El usuario ingresa a eliminar un pedido que se encuentra en estado Enviado.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	El sistema no permite continuar.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite><testsuite id="130107" name="S4-RF05 Gestión de Ciudades" >
+<node_order><![CDATA[4]]></node_order>
+<details><![CDATA[<p>
+	Esta suite contendr&aacute; las diferentes suites relacionadas a la Gesti&oacute;n de Ciudades</p>
+]]></details> 
+
+<testcase internalid="130109" name="CP 01 - Alta Ciudad">
+	<node_order><![CDATA[0]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que el campo &quot;Nombre&quot; sea obligatorio.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Estar registrado como Administrador/Supervisor.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Clic en &quot;agregar ciudad&quot;.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega la ventana de detalles de la ciudad.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Dejar el campo &quot;Nombre&quot; en blanco y hacer click en guardar.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Un mesage debe desplegarse indicando &quot;Error: falta completar los siguientes campos: &#39;Nombre&#39;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="130122" name="CP 02 - Modificar Ciudad por Código">
+	<node_order><![CDATA[3]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que se pueda modificar una ciudad busc&aacute;ndola por su c&oacute;digo.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Estar registrado como Administrador/Supervisor.</p>
+<p>
+	Debe haberse creado de antemano la ciudad a utilizar en esta prueba.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration>5.00</estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Ir a la opci&oacute;n de b&uacute;squeda de ciudades y buscar la ciudad a modificar por su c&oacute;digo.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	La ciudad correspondiente se despliega.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Seleccionar la opci&oacute;n &quot;Modificar&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se muestra la interfaz de edici&oacute;n de la ciudad.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Ingresar un nombre nuevo y guardar.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega una alerta en pantalla: &quot;Cambios realizados&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="130148" name="CP 03 - Baja Ciudad por Nombre">
+	<node_order><![CDATA[7]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que se pueda dar de baja una ciudad busc&aacute;ndola por su nombre.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Estar registrado como Administrador/Supervisor.</p>
+<p>
+	Debe haberse creado de antemano la ciudad a utilizar en esta prueba.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[2]]></importance>
+	<estimated_exec_duration></estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Hacer clic en &quot;Buscar ciudades&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<div>
+	Se despliega la lista de ciudades</div>
+<div>
+	&nbsp;</div>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[2]]></step_number>
+	<actions><![CDATA[<p>
+	Ingresar en el campo &quot;Nombre&quot; el nombre de la ciudad conocida que se desea eliminar y cliquear en la &quot;lupa&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se visualizara en pantalla la ciudad a eliminar</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Hacer clic en &quot;Eliminar&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	El sistema mostrara en pantalla &quot;&iquest;Esta seguro que desea eliminar la ciudad?&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[4]]></step_number>
+	<actions><![CDATA[<p>
+	Hacer clic en &quot;Aceptar&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se mostrara en pantalla el siguiente alert: &quot;Se ha eliminado correctamente la ciudad indicada&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[5]]></step_number>
+	<actions><![CDATA[<p>
+	Repetir paso 1</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega la lista de ciudades</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[6]]></step_number>
+	<actions><![CDATA[<p>
+	Repetir paso 2</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se visualizara en pantalla: &quot;No se ha encontrado dicha ciudad, intente ingresando otro nombre&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+
+<testcase internalid="130156" name="CP 04 - Permisos Baja Ciudad">
+	<node_order><![CDATA[8]]></node_order>
+	<version><![CDATA[1]]></version>
+	<summary><![CDATA[<p>
+	Probar que la aplicaci&oacute;n permita dar de baja una ciudad si s&oacute;lo se es administrador, supervisor u operario del sistema.</p>
+]]></summary>
+	<preconditions><![CDATA[<p>
+	Estar registrado con un usuario que tenga perfil de administrador, supervisor u operario.</p>
+<p>
+	Debe haberse creado de antemano la ciudad a utilizar en esta prueba.</p>
+]]></preconditions>
+	<execution_type><![CDATA[1]]></execution_type>
+	<importance><![CDATA[3]]></importance>
+	<estimated_exec_duration>4.00</estimated_exec_duration>
+	<status>1</status>
+<steps>
+<step>
+	<step_number><![CDATA[1]]></step_number>
+	<actions><![CDATA[<p>
+	Ir a la opci&oacute;n de b&uacute;squeda de ciudades y buscar la ciudad a modificar por su c&oacute;digo.</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	La ciudad correspondiente se despliega.</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+
+<step>
+	<step_number><![CDATA[3]]></step_number>
+	<actions><![CDATA[<p>
+	Seleccionar la opci&oacute;n &quot;Eliminar&quot;</p>
+]]></actions>
+	<expectedresults><![CDATA[<p>
+	Se despliega una alerta en pantalla: &quot;Ciudad eliminada&quot;</p>
+]]></expectedresults>
+	<execution_type><![CDATA[1]]></execution_type>
+</step>
+</steps>
+</testcase>
+</testsuite></testsuite>
