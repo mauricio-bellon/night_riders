@@ -29,12 +29,27 @@ public class ControladorUsuario {
 		return pudeCrear;
 
 	}
+	public static boolean existeUsuario(String codigo){
+		
+		boolean existe;
+		Usuario usuario = ManejadorUsuario.obtenerUsuario(codigo);
+		
+		if (usuario==null){
+			existe = false;
+		}
+		else{
+			existe = true;
+		}
+		
+		return existe;
+		
+	}
 	
 	public static ArrayList<String> obtenerInfoUsuarios(){
 		
 		ArrayList<String> infoUsuarios = new ArrayList<>();
 		
-		ArrayList<Usuario> usuarios = ManejadorUsuario.obtenerTodosUsuarios();
+		ArrayList<Usuario> usuarios = (ArrayList<Usuario>) ManejadorUsuario.obtenerTodosUsuarios();
 		
 		for(Usuario usuario: usuarios){
 			infoUsuarios.add(usuario.toString());
@@ -45,7 +60,7 @@ public class ControladorUsuario {
 	}
 	
 	public static  ArrayList<Usuario> obtenerTodosUsuarios(){
-		return ManejadorUsuario.obtenerTodosUsuarios();
+		return (ArrayList<Usuario>) ManejadorUsuario.obtenerTodosUsuarios();
 	}
 
 

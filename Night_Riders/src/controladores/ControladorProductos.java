@@ -1,8 +1,10 @@
 package controladores;
 
+import java.lang.reflect.Array;
 import java.sql.SQLException;
+import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
+
 
 import Objetos.Productos;
 import manejadores.ManejadorProductos;
@@ -44,9 +46,23 @@ public class ControladorProductos {
 		
 	}
 	
-	public List<Productos> obtenerTodosProductos(){
+	public static ArrayList<String> obtenerInfoProductos(){
 		
-		return ManejadorProductos.obtenerTodasProductos();
+		ArrayList<String> infoProductos = new ArrayList<>();
+		
+		ArrayList<Productos> productos = ManejadorProductos.obtenerTodasProductos();
+		
+		for(Productos producto: productos){
+			infoProductos.add(producto.toString());
+		}
+		
+		return infoProductos;
+		
+	}
+	
+	public static ArrayList<Productos> obtenerTodosProductos(){
+		
+		return  ManejadorProductos.obtenerTodasProductos();
 	}
 
 }

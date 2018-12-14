@@ -5,16 +5,12 @@ import java.awt.Frame;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
 import java.awt.Insets;
-import java.awt.List;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.text.SimpleDateFormat;
 import java.util.ArrayList;
-import java.util.Date;
 
 import javax.swing.BorderFactory;
 import javax.swing.JButton;
-import javax.swing.JComboBox;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
@@ -22,27 +18,23 @@ import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.JTextField;
 import javax.swing.RowFilter;
-import javax.swing.RowSorter;
-import javax.swing.ScrollPaneLayout;
-import javax.swing.event.DocumentEvent;
-import javax.swing.event.DocumentListener;
 import javax.swing.table.DefaultTableModel;
 import javax.swing.table.TableModel;
 import javax.swing.table.TableRowSorter;
 
-import controladores.ControladorProductos;
-import Objetos.Productos;
+import controladores.ControladorCiudades;
+import Objetos.Ciudades;
 
-public class FrameListarProductos implements ActionListener{
-	
+public class FrameListarCiudades implements ActionListener {
+
 	private Frame frame;
 	
-	private JTable tablaProductos;
+	private JTable tablaCiudades;
 	
 	private JButton botonFiltrar;
 	private JButton botonLimpiar;
 	
-	public FrameListarProductos(JFrame framePadre) {
+	public FrameListarCiudades(JFrame framePadre) {
 		JButton botonFiltrar = new JButton("Filtrar");
 		botonLimpiar.addActionListener(this);
 		
@@ -57,14 +49,14 @@ public class FrameListarProductos implements ActionListener{
 	
 	private void initalizeFrame(JFrame framePadre) {
 		
-		JFrame frame = new JFrame("Listado de Productos");
+		JFrame frame = new JFrame("Listado de Ciudades");
 		frame.setSize(600, 600);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(null);
 		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		
-		JPanel listarProductosPanel = new JPanel (new GridBagLayout());
-		listarProductosPanel.setSize (600,600);
+		JPanel ListarCiudadesPanel = new JPanel (new GridBagLayout());
+		ListarCiudadesPanel.setSize (600,600);
 		
 		GridBagConstraints constraints = new GridBagConstraints();
 		constraints.anchor = GridBagConstraints.WEST;
@@ -72,23 +64,23 @@ public class FrameListarProductos implements ActionListener{
 		
 		constraints.gridx = 2;
 		constraints.gridy = 0;
-		listarProductosPanel.add(this.botonFiltrar, constraints);
+		ListarCiudadesPanel.add(this.botonFiltrar, constraints);
 		
 		constraints.gridx = 3;
 		constraints.gridy = 0;
-		listarProductosPanel.add(this.botonLimpiar, constraints);
+		ListarCiudadesPanel.add(this.botonLimpiar, constraints);
 		
 		constraints.gridx = 0;
 		constraints.gridy = 3;
 		constraints.gridwidth = 6;
 		constraints.anchor = GridBagConstraints.CENTER;
-		this.tablaProductos = this.cargarTablaProductos();
+		this.tablaCiudades = this.cargarTablaCiudades();
 		
-		listarProductosPanel.add(new JScrollPane(this.tablaProductos), constraints);
+		ListarCiudadesPanel.add(new JScrollPane(this.tablaCiudades), constraints);
 		
-		listarProductosPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Productos"));
+		ListarCiudadesPanel.setBorder(BorderFactory.createTitledBorder(BorderFactory.createEtchedBorder(), "Lista de Ciudades"));
 		
-		frame.add(listarProductosPanel);
+		frame.add(ListarCiudadesPanel);
 		
 		this.botonFiltrar.addActionListener(this);
 		this.botonLimpiar.addActionListener(this);
@@ -98,28 +90,18 @@ public class FrameListarProductos implements ActionListener{
 		this.frame = frame;
 	}
 	
-	private JTable cargarTablaProductos() {
-		ArrayList<Productos> productos = ControladorProductos.obtenerTodosProductos();
+	private JTable cargarTablaCiudades() {
+		ArrayList<Ciudades> ciudades = ControladorCiudades.obtenerTodosCiudades();
 		
-		String[] nombreColumnas = { "Codigo","Nombre", "Stock Total", "Stock Minimo" , "Segmentacion", "Peso", "Estiba","Volumen","Precio","Fecha Vencimiento","Fecha Elaboracion","Lote"};
+		String[] nombreColumnas = { "Codigo","Nombre"};
 		
-		Object[][] datos = new Object[productos.size()][12];
+		Object[][] datos = new Object[ciudades.size()][3];
 		
 		int fila = 0;
 		
-		for (Productos p: productos) {
+		for (Ciudades p: ciudades) {
 			datos[fila][0] = p.getCodigo();
 			datos[fila][1] = p.getNombre();
-			datos[fila][2] = p.getStockTotal();
-			datos[fila][3] = p.getStockMinimo();
-			datos[fila][4] = p.getSegmentacion();
-			datos[fila][5] = p.getPeso();
-			datos[fila][6] = p.isTipoEstiba();
-			datos[fila][7] = p.getVolumen();
-			datos[fila][8] = p.getPrecio();
-			datos[fila][9] = p.getFechaVencimiento();
-			datos[fila][10] = p.getFechaElaborado();
-			datos[fila][11] = p.getLote();
 			fila++;
 		}
 		DefaultTableModel model = new DefaultTableModel (datos, nombreColumnas) {
@@ -139,7 +121,7 @@ public class FrameListarProductos implements ActionListener{
 		table.setCellSelectionEnabled(false);
 		table.setSize(600,600);
 		
-		this.tablaProductos = table;
+		this.tablaCiudades = table;
 		
 		return table;
 	}
@@ -153,11 +135,11 @@ public class FrameListarProductos implements ActionListener{
 	}
 	
 	public void accionLimpiarFiltro() {
-		this.tablaProductos.setRowSorter(null);
+		this.tablaCiudades.setRowSorter(null);
 	}
 	
 	private void accionFiltrar() {
-		TableRowSorter<TableModel> filtro = new TableRowSorter<>(this.tablaProductos.getModel());
+		TableRowSorter<TableModel> filtro = new TableRowSorter<>(this.tablaCiudades.getModel());
 		
 	}
 
