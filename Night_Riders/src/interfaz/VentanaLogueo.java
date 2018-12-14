@@ -1,9 +1,5 @@
 package interfaz;
 
-// importar clases de la aplicación
-import controladores.ControladorUsuario;
-
-// importar clases de SWING
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
@@ -13,20 +9,25 @@ import javax.swing.JOptionPane;
 import java.awt.BorderLayout;
 import java.awt.Font;
 import java.awt.HeadlessException;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JTextField;
 import javax.swing.JButton;
 import javax.swing.SwingConstants;
 
-import javax.swing.JRadioButton;
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import controladores.ControladorUsuario;
 
-public class FrameLogueo {
+import javax.swing.JRadioButton;
+import javax.swing.AbstractAction;
+import javax.swing.Action;
+
+public class VentanaLogueo {
 
 	private JFrame frmLogueo;
 	private JTextField campo_usuario;
 	private JTextField campo_contra;
+	private final Action action = new SwingAction();
 
 	/**
 	 * Launch the application.
@@ -35,7 +36,7 @@ public class FrameLogueo {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					FrameLogueo window = new FrameLogueo();
+					VentanaLogueo window = new VentanaLogueo();
 					window.frmLogueo.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
@@ -47,7 +48,7 @@ public class FrameLogueo {
 	/**
 	 * Create the application.
 	 */
-	public FrameLogueo() {
+	public VentanaLogueo() {
 		initialize();
 	}
 
@@ -87,41 +88,34 @@ public class FrameLogueo {
 		JButton btnIngresar = new JButton("ingresar");
 		btnIngresar.addActionListener(new ActionListener() {
 			//ACA CREO LA FUNCIÓN QUE SE DISPARA CUANDO SE PRESIONA EL BOTÓN DE LOGUEAR
-			public void actionPerformed(ActionEvent e) {
+			public void actionPerformed(ActionEvent arg0) {
 				
-				try {
-					
-					// OBTENER DATOS INGRESADO POR EL USUARIO
-					String user = campo_usuario.getText();
-					String pass = campo_contra.getText();
-					
-					// COMPOBAR QUE EL USUARIO EXISTA EN LA BASE DE DATOS
-					if (ControladorUsuario.existeUsuario(user)) {
-						
-						// POP UP DE PRUEBA
-						JOptionPane.showMessageDialog(null,"el usuario está registrado!");
-						
-					} else {
-						
-						// POP UP DE PRUEBA
-						JOptionPane.showMessageDialog(null,"usuario inexistente!");
-						
-					};
-					
-					
-				} catch (HeadlessException e1) {
-					
-					// TODO Auto-generated catch block
-					e1.printStackTrace();
-					
-				}
 				
+				/*
+				// OBTENER DATOS INGRESADO POR EL USUARIO
+				String user = campo_usuario.getText();
+				String pass = campo_contra.getText();
+					
+				// COMPOBAR QUE EL USUARIO EXISTA EN LA BASE DE DATOS
+				if (ControladorUsuario.existeUsuario(user) == true) {
+						
+					// POP UP DE PRUEBA (no funciona no se por que)
+					JOptionPane.showMessageDialog(null,"el usuario está registrado!");
+					// aquí habría que comparar que la contraseña ingresada coincida con la
+					// contraseña correspondiente al usuario ingresado en la bd.
+						
+				} else {
+						
+					// POP UP DE PRUEBA
+					JOptionPane.showMessageDialog(null,"usuario inexistente!");
+						
+				}*/
+						
 			}
 		});
 		
 		btnIngresar.setFont(new Font("Consolas", Font.PLAIN, 16));
 		btnIngresar.setBounds(28, 93, 280, 23);
 		frmLogueo.getContentPane().add(btnIngresar);
-		
 	}
 }
