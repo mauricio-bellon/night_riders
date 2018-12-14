@@ -75,9 +75,9 @@ public class ManejadorUsuario {
 
 	}
 
-	public static  List<Usuario> obtenerTodosUsuarios() {
+	public static  ArrayList<Usuario> obtenerTodosUsuarios() {
 
-		 List<Usuario> resultado = new ArrayList<>();
+		 ArrayList<Usuario> resultado = new ArrayList<>();
 
 		try {
 			ResultSet resultadoConsulta = consultaTodosUsuario.executeQuery();
