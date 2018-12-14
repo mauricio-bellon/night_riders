@@ -3,20 +3,18 @@ package interfaz;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
+/*import java.text.ParseException;
+import java.text.SimpleDateFormat;*/
 import java.util.ArrayList;
-import java.util.Date;
+//import java.util.Date;
+
+import java.sql.Date;
 
 import controladores.ControladorCiudades;
-import controladores.ControladorClientes;
-import controladores.ControladorConsultas;
-import controladores.ControladorMascotas;
 import controladores.ControladoresPedidoProducto;
-import controladores.ControladorPerfiles;
+
 import controladores.ControladorProductos;
 import controladores.ControladorUsuario;
-import controladores.ControladorVeterinarios;
 import excepciones.RangoOpcionException;
 
 public class Interfaz {
@@ -173,11 +171,11 @@ public class Interfaz {
 			String Fecha = reader.readLine();
 			System.out.println();
 
-			System.out.print("FechaEstimadaRecibido: ");
+			System.out.print("Fecha Estimada Recibido: ");
 			String FechaEstimadaRecibido = reader.readLine();
 			System.out.println();
 
-			System.out.print("EstadoPedidoProducto: ");
+			System.out.print("Estado Pedido Producto: ");
 			String EstadoPedidoProducto = reader.readLine();
 			System.out.println();
 			
@@ -185,8 +183,8 @@ public class Interfaz {
 			String Cantidad = reader.readLine();
 			System.out.println();
 
-			System.out.print("FecbaEstimadaEntrega: ");
-			String FecbaEstimadaEntrega = reader.readLine();
+			System.out.print("Fecha Estimada Entrega: ");
+			String FechaEstimadaEntrega = reader.readLine();
 			System.out.println();
 			
 
@@ -230,23 +228,25 @@ public class Interfaz {
 				// Si confirma que si, validamos que el veterinario con dicho
 				// codigoProd no exista previamente en el sistema
 
-				boolean existeVeterinario = ControladorVeterinarios.existeVeterinario(codigoProd);
+				boolean existePedido = ControladoresPedidoProducto.existePedidoProducto(codigoProd);
 
-				if (existeVeterinario) {
+				if (existePedido) {
 
-					System.out.print("Ya existe un veterinario con codigoProd " + codigoProd + " en el sistema.");
+					System.out.print("Ya existe un Pedido de producto con este mismo codigoProd " + codigoProd + " en el sistema.");
 				} else {
 
-					// Si llegamos aqui intentamos crear el veterinario, Si se
+					// Si llegamos aqui intentamos crear el pedido, Si surge
 					// da algún error, mostramos un msj y volvemos al menu
-
-					boolean pudeCrear = ControladorVeterinarios.ingresarNuevaVeterinario(codigoProd, Fecha, FechaEstimadaRecibido,
-							ci);
-
+					Date Fec = Date.valueOf(Fecha);
+					Date FecEst = Date.valueOf(FechaEstimadaRecibido);
+					double EstPed = Double.valueOf(EstadoPedidoProducto);
+					long Cant = Long.valueOf(Cantidad);
+					Date FechEstiEnt = Date.valueOf(FechaEstimadaEntrega);
+					boolean pudeCrear = ControladoresPedidoProducto.ingresarNuevaPedidoProducto(codigoProd, Fec, FecEst, EstPed, Cant, FechEstiEnt);
 					if (pudeCrear) {
-						System.out.print("Veterinario con codigoProd " + codigoProd + " creado exitosamente!");
+						System.out.print("Pedido Producto con codigoProd " + codigoProd + " creado exitosamente!");
 					} else {
-						System.out.print("Ocurrió un error al guardar el veterinario. Intente nuevamente.");
+						System.out.print("Ocurrió un error al guardar el pedido. Intente nuevamente.");
 					}
 				}
 
@@ -268,27 +268,47 @@ public class Interfaz {
 
 			// Pedimos uno a uno los datos del curso
 
-			System.out.print("Patente Mascota: ");
-			String nroPatenteMascota = reader.readLine();
+			System.out.print("Codigo: ");
+			String codigo = reader.readLine();
 			System.out.println();
 
-			System.out.print("codigoProd Veterinario: ");
-			String codigoProdVeterinaio = reader.readLine();
+			System.out.print("Codigo Perfil: ");
+			String CodPerf = reader.readLine();
 			System.out.println();
 
-			System.out.print("Fecha (dd/MM/YYYY): ");
-			String fechaString = reader.readLine();
+			System.out.print("Nombre: ");
+			String Nombre = reader.readLine();
+			System.out.println();
+			
+			System.out.print("Apellido: ");
+			String Apellido = reader.readLine();
+			System.out.println();
+			
+			System.out.print("Nombre Acceso: ");
+			String NombreAcc = reader.readLine();
+			System.out.println();
+			
+			System.out.print("Correo: ");
+			String Correo = reader.readLine();
+			System.out.println();
+			
+			System.out.print("Contraseña: ");
+			String clave = reader.readLine();
 			System.out.println();
 
 			// Mostramos la información ingresada para pedir la confirmación
 
 			System.out.println();
 			System.out.println();
-			System.out.println("Se ingresará en el sistema una Consulta con los siguientes datos:");
+			System.out.println("Se ingresará en el sistema un nuevo Usuario con los siguientes datos:");
 			System.out.println();
-			System.out.println("PATENTE MASCOTA: " + nroPatenteMascota);
-			System.out.println("codigoProd VETERINARIO: " + codigoProdVeterinaio);
-			System.out.println("FECHA: " + fechaString);
+			System.out.println("Codigo: " + codigo);
+			System.out.println("Codigo Perfil: " + CodPerf);
+			System.out.println("Nombre: " + Nombre);
+			System.out.println("Apellido: " + Apellido);
+			System.out.println("NombreAcc: " + NombreAcc);
+			System.out.println("Correo: " + Correo);
+			System.out.println("Contraseña: " + clave);
 			System.out.println();
 			System.out.print("¿Confirma los datos? (Y/N)");
 
@@ -311,52 +331,37 @@ public class Interfaz {
 
 			if (confirma.equals("N")) {
 
-				System.out.print("Alta de consulta cancelada!");
+				System.out.print("Alta de Usuario cancelada!");
 			} else {
 
-				// Si confirma que si, validamos que el veterinario y la mascota
+				// Si confirma que si, validamos que el usuario
 				// esten previamente en el sistema
 
-				boolean existeVeterinario = ControladorVeterinarios.existeVeterinario(codigoVeterinaio);
-				boolean existeMascota = ControladorMascotas.existeMascota(nroPatenteMascota);
+				boolean existePedido = ControladorUsuario.existeUsuario(codigo);
 
-				if (!existeVeterinario) {
+				if (!existePedido) {
 
 					System.out
-							.print("No se encuentra un Veterinario con CODIGO " + codigoVeterinaio + " en el sistema.");
+							.print("No se encuentra un Usuario con CODIGO " + codigo + " en el sistema.");
 				} else {
 
-					if (!existeMascota) {
-						System.out.print(
-								"No se encuentra una Mascota con NRO PATENTE " + nroPatenteMascota + " en el sistema.");
+
+					// Transofrmamos la fecha de Strign en el formato
+					// indicado al tipo Date.
+					
+					//SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+					//Date fecha = sdf.parse(fechaString);
+
+					// Si llegamos aqui intentamos crear el cliente, Si
+					// se da algún error, mostramos un msj y volvemos al
+					// menu
+					boolean pudeCrear = ControladorUsuario.ingresarNuevoUsuario(codigo, CodPerf, Nombre, Apellido, NombreAcc, Correo, clave);
+					if (pudeCrear) {
+						System.out.print("Usuario creado exitosamente!");
 					} else {
-
-						// Transofrmamos la fecha de Strign en el formato
-						// indicado al tipo Date.
-						SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
-
-						try {
-							Date fecha = sdf.parse(fechaString);
-
-							// Si llegamos aqui intentamos crear el cliente, Si
-							// se da algún error, mostramos un msj y volvemos al
-							// menu
-
-							boolean pudeCrear = ControladorConsultas.ingresarNuevaConsulta(codigoVeterinaio,
-									nroPatenteMascota, fecha);
-
-							if (pudeCrear) {
-								System.out.print("Consulta creada exitosamente!");
-							} else {
-								System.out.print("Ocurrió un error al guardar la consulta. Intente nuevamente.");
-							}
-						} catch (ParseException e) {
-							System.out.print("Error en el formato de la fecha.");
-						}
-
+						System.out.print("Ocurrió un error al guardar el usuario. Intente nuevamente.");
 					}
 				}
-
 			}
 
 		} catch (IOException e) {
@@ -375,16 +380,12 @@ public class Interfaz {
 
 			// Pedimos uno a uno los datos del curso
 
-			System.out.print("FechaEstimadaRecibido: ");
-			String FechaEstimadaRecibido = reader.readLine();
+			System.out.print("Codigo: ");
+			String Codigo = reader.readLine();
 			System.out.println();
 
-			System.out.print("Apellido: ");
-			String apellido = reader.readLine();
-			System.out.println();
-
-			System.out.print("CI: ");
-			String ci = reader.readLine();
+			System.out.print("Nombre: ");
+			String Nombre = reader.readLine();
 			System.out.println();
 
 			// Mostramos la información ingresada para pedir la confirmación
@@ -393,9 +394,8 @@ public class Interfaz {
 			System.out.println();
 			System.out.println("Se ingresará en el sistema el CLiente con los siguientes datos:");
 			System.out.println();
-			System.out.println("FechaEstimadaRecibido: " + FechaEstimadaRecibido);
-			System.out.println("APELLIDO: " + apellido);
-			System.out.println("FechaEstimadaRecibido: " + ci);
+			System.out.println("Codigo: " + Codigo);
+			System.out.println("Nombre: " + Nombre);
 			System.out.println();
 			System.out.print("¿Confirma los datos? (Y/N)");
 
@@ -424,20 +424,20 @@ public class Interfaz {
 				// Si confirma que si, validamos que el cliente con dicha CI no
 				// exista previamente en el sistema
 
-				boolean existeCliente = ControladorClientes.existeCliente(ci);
+				boolean existeCiudad = ControladorCiudades.existeCiudades(Codigo);
 
-				if (existeCliente) {
+				if (existeCiudad) {
 
-					System.out.print("Ya existe un cliente con CI " + ci + " en el sistema.");
+					System.out.print("Ya existe un ciudad con este codigo " + Codigo + " en el sistema.");
 				} else {
 
-					// Si llegamos aqui intentamos crear el cliente, Si se da
+					// Si llegamos aqui intentamos crear la ciudad, Si se da
 					// algún error, mostramos un msj y volvemos al menu
 
-					boolean pudeCrear = ControladorClientes.ingresarNuevoCliente(FechaEstimadaRecibido, apellido, ci);
+					boolean pudeCrear = ControladorCiudades.ingresarNuevaCiudad(Codigo, Nombre);
 
 					if (pudeCrear) {
-						System.out.print("Cliente con CI " + ci + " creado exitosamente!");
+						System.out.print("Ciudad con Codigo " + Codigo + " creado exitosamente!");
 					} else {
 						System.out.print("Ocurrió un error al guardar el cliente. Intente nuevamente.");
 					}
@@ -461,24 +461,28 @@ public class Interfaz {
 
 			// Pedimos uno a uno los datos del curso
 
-			System.out.print("Numero Patente: ");
-			String nroPatente = reader.readLine();
+			System.out.print("Cod Prod: ");
+			String CodProd = reader.readLine();
 			System.out.println();
 
-			System.out.print("Tipo: ");
-			String tipo = reader.readLine();
+			System.out.print("Fecha: ");
+			String Fecha = reader.readLine();
 			System.out.println();
 
-			System.out.print("FechaEstimadaRecibido: ");
+			System.out.print("Fecha Estimada Recibido: ");
 			String FechaEstimadaRecibido = reader.readLine();
 			System.out.println();
-
-			System.out.print("Edad: ");
-			String edadString = reader.readLine();
+			
+			System.out.print("Estado Pedido Producto: ");
+			String EstadoPedidoProducto = reader.readLine();
 			System.out.println();
 
-			System.out.print("CI Cliente: ");
-			String ciCliente = reader.readLine();
+			System.out.print("Cantidad: ");
+			String Cantidad = reader.readLine();
+			System.out.println();
+
+			System.out.print("Fecha Estimada Entrega: ");
+			String FechaEstimadaEntrega = reader.readLine();
 			System.out.println();
 
 			// Mostramos la información ingresada para pedir la confirmación
@@ -487,11 +491,12 @@ public class Interfaz {
 			System.out.println();
 			System.out.println("Se ingresará en el sistema la Mascota con los siguientes datos:");
 			System.out.println();
-			System.out.println("NUMERO PATENTE: " + nroPatente);
-			System.out.println("TIPO: " + tipo);
+			System.out.println("NUMERO PATENTE: " + CodProd);
+			System.out.println("Fecha: " + Fecha);
 			System.out.println("FechaEstimadaRecibido: " + FechaEstimadaRecibido);
-			System.out.println("EDAD: " + edadString);
-			System.out.println("CI CLIENTE: " + ciCliente);
+			System.out.println("Estado Pedido Producto: " + EstadoPedidoProducto);
+			System.out.println("Cantidad: " + Cantidad);
+			System.out.println("Fecha Estimada Entrega: " + FechaEstimadaEntrega);
 			System.out.println();
 			System.out.print("¿Confirma los datos? (Y/N)");
 
@@ -522,57 +527,45 @@ public class Interfaz {
 				// 2. Que no exista otra mascota con la misma patente
 				// 3. Que el valor de edad es un número
 
-				boolean existeCliente = ControladorClientes.existeCliente(ciCliente);
+				boolean existePedido = ControladoresPedidoProducto.existePedidoProducto(CodProd);
 
-				boolean esNumeroEdad = true;
-				int edad = -1;
-				try {
-					edad = Integer.valueOf(edadString);
-				} catch (NumberFormatException e) {
-					esNumeroEdad = false;
-				}
+				
 
-				boolean existeMascota = ControladorMascotas.existeMascota(nroPatente);
+				boolean existeProducto = ControladorProductos.existeProducto(CodProd);
 
-				// Si no existe el cliente, motramos un msj
+				// Si no existe el producto, motramos un msj
 
-				if (!existeCliente) {
-					System.out.print("No se encuentra un Cliente con CI " + ciCliente + " en el sistema.");
+				if (!existePedido) {
+					System.out.print("No se encuentra un Producto con Codigo " + CodProd + " en el sistema.");
 				} else {
 
-					// Si el cliente existe, validamos que la edad sea un valor
-					// numérico
+						// POr ultimo, validamos que no exista pedido con ese
+						// codigo
 
-					if (!esNumeroEdad) {
-						System.out.print("La edad debe ser un número válido.");
-					} else {
-
-						// POr ultimo, validamos que no exista mascota con ea
-						// patente
-
-						if (existeMascota) {
+						if (existeProducto) {
 							System.out.print(
-									"Ya existe una masctoa con el NRO de PATENTE " + nroPatente + " en el sistema.");
+									"Ya existe un pedido con el codigo " + CodProd + " en el sistema.");
 						} else {
-							// Si llegamos aqui intentamos crear la mascota, Si
+							// Si llegamos aqui intentamos crear el pedido, Si
 							// se da algún error, mostramos un msj y volvemos al
 							// menu
-
-							boolean pudeCrear = ControladorMascotas.ingresarNuevaMascota(nroPatente, tipo, edad, FechaEstimadaRecibido,
-									ciCliente);
+							Date Fec = Date.valueOf(Fecha);
+							Date FecEst = Date.valueOf(FechaEstimadaRecibido);
+							double EstPed = Double.valueOf(EstadoPedidoProducto);
+							long Cant = Long.valueOf(Cantidad);
+							Date FechEstiEnt = Date.valueOf(FechaEstimadaEntrega);
+							boolean pudeCrear = ControladoresPedidoProducto.ingresarNuevaPedidoProducto(CodProd, Fec, FecEst, EstPed, Cant, FechEstiEnt);
 
 							if (pudeCrear) {
-								System.out.print("Mascota con NRO PATENTE " + nroPatente + " creada exitosamente!");
+								System.out.print("Pedido con codigo " + CodProd + " creada exitosamente!");
 							} else {
-								System.out.print("Ocurrió un error al guardar la mascota. Intente nuevamente.");
+								System.out.print("Ocurrió un error al guardar el Pedido. Intente nuevamente.");
 							}
 						}
 
 					}
 
 				}
-
-			}
 
 		} catch (IOException e) {
 			System.out.print("Ocurrió un error al leer los datos de pantalla. Intente nuevamente.");
@@ -606,6 +599,27 @@ public class Interfaz {
 
 		if (opcion <= 0 || opcion > 8) {
 			throw new RangoOpcionException("El rango de la opcion debe estar entre 1 y 7");
+		}
+
+	}
+	
+	private static void ListarCiudades() {
+
+		// Imprimimos el mensaje de bienvenida
+		System.out.println(MENSAJE_LISTADO_CIUDADES);
+		System.out.println();
+		System.out.println();
+
+		ArrayList<String> infoCiudades = ControladorCiudades.obtenerInfoCiudades();
+		
+		if (infoCiudades.isEmpty()){
+			System.out.println("No hay ciudades ingresadas en el sistema.");
+		}
+		else{
+			System.out.println("Codigo,Nombre");
+			for (String info: infoCiudades){
+				System.out.println(info);
+			}
 		}
 
 	}

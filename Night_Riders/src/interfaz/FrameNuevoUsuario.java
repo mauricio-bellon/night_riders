@@ -53,7 +53,6 @@ public class FrameNuevoUsuario implements ActionListener {
 		this.labelapellido = new JLabel("apellido:");
 		this.labelnombreAcceso = new JLabel("nombreAcceso:");
 		this.labelcorreo = new JLabel("correo:");
-		this.labelcorreo = new JLabel("correo:");
 		this.labelcontraseña = new JLabel("contraseña:");
 		
 		this.textCodigo = new JTextField(15);
@@ -72,7 +71,7 @@ public class FrameNuevoUsuario implements ActionListener {
 
 	private void initalizeFrame(JFrame framePadre) {
 
-		JFrame frame = new JFrame("Nuevo Pedido");
+		JFrame frame = new JFrame("Nuevo usuario");
 		frame.setSize(600, 400);
 		frame.setResizable(false);
 		frame.setLocationRelativeTo(framePadre);
@@ -99,45 +98,50 @@ public class FrameNuevoUsuario implements ActionListener {
 		NuevoUsuarioPanel.add(this.textPerfCod, constraints);
 		
 		constraints.gridx = 0;
-		constraints.gridy = 1;
+		constraints.gridy = 2;
 		NuevoUsuarioPanel.add(this.labelNombre, constraints);
 
 		constraints.gridx = 1;
 		NuevoUsuarioPanel.add(this.textNombre, constraints);
+		
 		constraints.gridx = 0;
-		constraints.gridy = 1;
+		constraints.gridy = 3;
 		NuevoUsuarioPanel.add(this.labelapellido, constraints);
 
 		constraints.gridx = 1;
 		NuevoUsuarioPanel.add(this.textapellido, constraints);
+		
 		constraints.gridx = 0;
-		constraints.gridy = 1;
+		constraints.gridy = 4;
 		NuevoUsuarioPanel.add(this.labelnombreAcceso, constraints);
 
 		constraints.gridx = 1;
 		NuevoUsuarioPanel.add(this.textnombreAcceso, constraints);
+		
 		constraints.gridx = 0;
-		constraints.gridy = 1;
+		constraints.gridy = 5;
 		NuevoUsuarioPanel.add(this.labelcorreo, constraints);
 
 		constraints.gridx = 1;
 		NuevoUsuarioPanel.add(this.textcorreo, constraints);
+		
 		constraints.gridx = 0;
-		constraints.gridy = 1;
+		constraints.gridy = 6;
 		NuevoUsuarioPanel.add(this.labelcontraseña, constraints);
 
 		constraints.gridx = 1;
 		NuevoUsuarioPanel.add(this.textcontraseña, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 3;
-		constraints.gridwidth = 3;
+		constraints.gridy = 7;
+		constraints.gridwidth = 7;
 		constraints.anchor = GridBagConstraints.CENTER;
 		NuevoUsuarioPanel.add(buttonIngresar, constraints);
 
 		constraints.gridx = 0;
-		constraints.gridy = 4;
-		constraints.gridwidth = 4;
+		constraints.gridy = 8;
+		
+		constraints.gridwidth = 8;
 		constraints.anchor = GridBagConstraints.CENTER;
 		NuevoUsuarioPanel.add(buttonCancelar, constraints);
 
